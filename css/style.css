@@ -1,3 +1,7 @@
+html {
+  overflow-y: scroll;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -34,6 +38,7 @@ header img {
 }
 
 .filterCard {
+  transition: 0.2s ease-in;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -45,6 +50,7 @@ header img {
   border-radius: 4px;
 }
 .filterCard:hover {
+  transition: 0.2s ease-in;
   cursor: pointer;
   background-color: #2c3a3a;
 }
@@ -53,6 +59,7 @@ header img {
 }
 
 .showAll {
+  transition: 0.2s ease-in;
   margin: 5px 25px;
 }
 .showAll:hover {
@@ -68,6 +75,7 @@ header img {
 }
 
 .activeShowAll {
+  transition: 0.2s ease-in;
   cursor: pointer;
 }
 .activeShowAll h2 {
@@ -80,6 +88,7 @@ header img {
 }
 
 .active {
+  transition: 0.2s ease-in;
   cursor: pointer;
   background-color: #2c3a3a;
 }
@@ -115,6 +124,7 @@ header img {
   max-width: 100%;
 }
 .jobList .job {
+  transition: 0.2s ease-in;
   display: flex;
   align-items: center;
   max-width: 100%;
@@ -149,6 +159,11 @@ header img {
 }
 .jobList .job .moreInfo .flex p {
   padding: 0px 10px;
+}
+.jobList .job:hover {
+  transition: 0.2s ease-in;
+  filter: drop-shadow(0px 7px 10px #bfe3e3);
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
