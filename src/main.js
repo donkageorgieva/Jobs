@@ -1,109 +1,109 @@
-class Filters {
- filterElements = document.querySelectorAll('.filterCard');
- showAll = document.querySelector('.showAll');
- resetActive(){
-  this.filterElements.forEach(el => {
-    el.classList.remove('active');
-    this.showAll.classList.remove('activeShowAll');
-  })
- }
-  activateFilter(jobList){
+// class Filters {
+//  filterElements = document.querySelectorAll('.filterCard');
+//  showAll = document.querySelector('.showAll');
+//  resetActive(){
+//   this.filterElements.forEach(el => {
+//     el.classList.remove('active');
+//     this.showAll.classList.remove('activeShowAll');
+//   })
+//  }
+//   activateFilter(jobList){
 
 
 
-  this.filterElements.forEach(filter => {
-    filter.addEventListener('click', (e)=> {
-    this.resetActive();
-  e.target.closest('div').classList.add('active');
+//   this.filterElements.forEach(filter => {
+//     filter.addEventListener('click', (e)=> {
+//     this.resetActive();
+//   e.target.closest('div').classList.add('active');
 
    
-      let h2Element = filter.querySelector('h2');
-      let role = h2Element.textContent;
+//       let h2Element = filter.querySelector('h2');
+//       let role = h2Element.textContent;
 
  
-      this.filterJobs(jobList,role);
+//       this.filterJobs(jobList,role);
 
 
     
-    })
-  })
-  this.showAll.addEventListener('click', ()=> {
-    this.resetActive();
-    this.showAll.classList.add('activeShowAll');
-    this.showAllJobs(jobList);
-  })
-  }
-filterJobs(list, element){
-  let filteredJobs =[];
-  list.forEach(job => {
+//     })
+//   })
+//   this.showAll.addEventListener('click', ()=> {
+//     this.resetActive();
+//     this.showAll.classList.add('activeShowAll');
+//     this.showAllJobs(jobList);
+//   })
+//   }
+// filterJobs(list, element){
+//   let filteredJobs =[];
+//   list.forEach(job => {
    
-   if (element.toLowerCase() === job.role.toLowerCase()){
-     filteredJobs.push(job);
-   }
-  })
-  RenderJobs.renderJobs(filteredJobs);
-}
-showAllJobs(list){
-  RenderJobs.renderJobs(list);
-}
-}
+//    if (element.toLowerCase() === job.role.toLowerCase()){
+//      filteredJobs.push(job);
+//    }
+//   })
+//   RenderJobs.renderJobs(filteredJobs);
+// }
+// showAllJobs(list){
+//   RenderJobs.renderJobs(list);
+// }
+// }
 
 
 
 
-class GetJobs extends Filters{
+// class GetJobs extends Filters{
 
-    async jobs(){
+//     async jobs(){
  
-      try{
-        let result = await fetch('src/data.json');
-        let data = await result.json();
-        RenderJobs.renderJobs(data);
-        this.activateFilter(data);
+//       try{
+//         let result = await fetch('src/data.json');
+//         let data = await result.json();
+//         RenderJobs.renderJobs(data);
+//         this.activateFilter(data);
        
-      } catch(error){
-     throw Error;
+//       } catch(error){
+//      throw Error;
 
-      }
+//       }
     
      
-    }
+//     }
    
-}
-class RenderJobs{
-  static renderJobs(data){
+// }
+// class RenderJobs{
+//   static renderJobs(data){
    
  
-      const parentElement = document.querySelector('.jobList');
-      parentElement.innerHTML = '';
+//       const parentElement = document.querySelector('.jobList');
+//       parentElement.innerHTML = '';
     
-      data.forEach(job => {
-        const jobElement = document.createElement('div');
-      jobElement.classList.add('job');
-      jobElement.id = job.id;
+//       data.forEach(job => {
+//         const jobElement = document.createElement('div');
+//       jobElement.classList.add('job');
+//       jobElement.id = job.id;
      
     
-jobElement.innerHTML = `<div class ='mainInfo'><div><p> ${job.company}</p><div class='chips'><p class ='featured'> </p> <p class='new'> </p></div></div><img src='${job.logo}'>  </div> 
-<div class='moreInfo'><h1> ${job.position}</h1><div class='flex'> <p> ${job.postedAt}</p><p>${job.contract} </p><p>${job.location} </p></div> </div>`;
-parentElement.append(jobElement);
-if(job.new === true){
- const element = jobElement.querySelector('.new');
- element.textContent = 'New';
- element.classList.add('activeNew');
-} 
- if (job.featured === true){
-  const element = jobElement.querySelector('.featured');
-  element.textContent = 'Featured'; 
-  element.classList.add('activeFeatured');
-} else{
-  jobElement.querySelector('.new').remove();
-  jobElement.querySelector('.featured').remove();
-}
-      });
+// jobElement.innerHTML = `<div class ='mainInfo'><div><p> ${job.company}</p><div class='chips'><p class ='featured'> </p> <p class='new'> </p></div></div><img src='${job.logo}'>  </div> 
+// <div class='moreInfo'><h1> ${job.position}</h1><div class='flex'> <p> ${job.postedAt}</p><p>${job.contract} </p><p>${job.location} </p></div> </div>`;
+// parentElement.append(jobElement);
+// if(job.new === true){
+//  const element = jobElement.querySelector('.new');
+//  element.textContent = 'New';
+//  element.classList.add('activeNew');
+// } 
+//  if (job.featured === true){
+//   const element = jobElement.querySelector('.featured');
+//   element.textContent = 'Featured'; 
+//   element.classList.add('activeFeatured');
+// } else{
+//   jobElement.querySelector('.new').remove();
+//   jobElement.querySelector('.featured').remove();
+// }
+//       });
 
 
-  }
+//   }
 
-}
-const jobs = new GetJobs;
-jobs.jobs();
+// }
+// const jobs = new GetJobs;
+// jobs.jobs();

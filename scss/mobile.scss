@@ -1,0 +1,98 @@
+$breakpoint-xs: 575.98px;
+$breakpoint-phone: 767.98px;
+$breakpoint-tablet: 991.98px;
+$breakpoint-desktop: 1199.98px;
+
+@media (max-width: $breakpoint-xs) {
+  body {
+    p {
+      font-size: 14px;
+      font-weight: 500;
+      color: $secondary-dark;
+    }
+    h2 {
+      font-size: 16px;
+      color: $primary;
+    }
+    h1 {
+      color: $primary;
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+  .wrap {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .filters {
+    max-width: 100%;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    border-radius: 8px;
+    filter: drop-shadow(0px 7px 5px $filterColor);
+  }
+  .mainInfo {
+    width: 65px !important;
+    max-width: 100%;
+    margin: 0em 1em !important;
+    padding: 5px !important;
+    div {
+      margin-bottom: 15px !important;
+      p {
+        margin-bottom: 5px;
+      }
+      .new {
+        display: flex;
+        max-width: 100%;
+
+        font-weight: 500;
+      }
+    }
+    img {
+      max-width: 100%;
+
+      height: 50px !important;
+    }
+    .new {
+      p {
+        padding: 0px 10px !important;
+      }
+      display: flex;
+      max-width: 100%;
+
+      font-weight: 500;
+    }
+    .featured {
+      max-width: 100%;
+      display: flex;
+      margin: 0px 15px !important;
+      font-weight: 500;
+    }
+  }
+  .activeNew {
+    padding: 5px 45px !important;
+
+    height: 25px !important;
+    border-radius: 100px;
+    align-items: center;
+    justify-content: center !important;
+    background-color: $filterColor;
+  }
+  .activeFeatured {
+    padding: 5px 45px !important;
+    height: 25px !important;
+    border-radius: 100px;
+    align-items: center;
+    justify-content: center !important;
+    border: solid 1px $primary;
+  }
+}
+@media (max-width: $breakpoint-phone) {
+}

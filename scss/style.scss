@@ -1,0 +1,213 @@
+@import "utilities.scss";
+html {
+  overflow-y: scroll;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: $bgColor;
+  font-family: "Spartan", sans-serif;
+  p {
+    font-size: 15px;
+    font-weight: 500;
+    color: $secondary-dark;
+  }
+  h2 {
+    font-size: 17px;
+    color: $primary;
+  }
+  h1 {
+    color: $primary;
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+
+header {
+  max-width: 100%;
+  position: relative;
+  img {
+    width: 100%;
+    max-width: 100%;
+    background-color: $primary;
+  }
+}
+
+.filterCard {
+  transition: 0.2s ease-in;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  max-width: 100%;
+  width: 180px;
+  height: 45px;
+  margin: 5px;
+  background-color: $filterColor;
+  border-radius: 4px;
+  &:hover {
+    transition: 0.2s ease-in;
+    cursor: pointer;
+
+    background-color: $secondary-darker;
+    h2 {
+      color: white;
+    }
+  }
+}
+.showAll {
+  transition: 0.2s ease-in;
+  margin: 5px 25px;
+  &:hover {
+    cursor: pointer;
+    h2 {
+      color: $secondary-darker;
+      text-decoration: underline;
+      text-decoration-color: $filterColor;
+      text-decoration-skip-ink: none;
+      text-decoration-thickness: 10px;
+      text-underline-offset: -10px;
+    }
+  }
+}
+.activeShowAll {
+  transition: 0.2s ease-in;
+  cursor: pointer;
+
+  h2 {
+    color: $secondary-darker;
+    text-decoration: underline;
+    text-decoration-color: $filterColor;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: 10px;
+    text-underline-offset: -10px;
+  }
+}
+.active {
+  transition: 0.2s ease-in;
+  cursor: pointer;
+
+  background-color: $secondary-darker;
+  h2 {
+    color: white;
+  }
+}
+
+.wrap {
+  position: absolute;
+  top: 125px;
+  width: 1000px;
+  max-width: 100%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+.filters {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  height: 150px;
+  align-items: center;
+  border-radius: 8px;
+  filter: drop-shadow(0px 7px 5px $filterColor);
+}
+
+.jobList {
+  margin: 125px auto;
+  width: 1000px;
+  max-width: 100%;
+  .job {
+    transition: 0.2s ease-in;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
+    height: 200px;
+    margin: 25px auto;
+    display: flex;
+    justify-content: flex-start;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    filter: drop-shadow(0px 7px 5px $filterColor);
+    img {
+      max-width: 100%;
+      height: 75px;
+      margin: 15px 0px;
+    }
+    .mainInfo {
+      width: 150px;
+      max-width: 100%;
+      margin: 0px 50px;
+      padding: 25px 0px;
+      p {
+        font-weight: 700;
+        color: $primary;
+      }
+
+      div {
+        width: 150px;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 100%;
+        display: flex;
+
+        p {
+          color: $primary;
+        }
+        .new {
+          p {
+            padding: 0px 80px;
+          }
+          display: flex;
+          max-width: 100%;
+
+          font-weight: 500;
+        }
+        .featured {
+          max-width: 100%;
+          display: flex;
+          margin: 0px 35px;
+          font-weight: 500;
+        }
+      }
+    }
+    .activeNew {
+      padding: 00px 25px;
+      height: 30px;
+      border-radius: 100px;
+      align-items: center;
+      background-color: $filterColor;
+    }
+    .activeFeatured {
+      padding: 0px 25px;
+
+      height: 30px;
+      border-radius: 100px;
+      align-items: center;
+      border: solid 1px $primary;
+    }
+    .moreInfo {
+      margin: 50px 0px;
+      h1 {
+        padding: 15px 10px;
+      }
+      .flex {
+        display: flex;
+        p {
+          padding: 0px 10px;
+        }
+      }
+    }
+    &:hover {
+      transition: 0.2s ease-in;
+      filter: drop-shadow(0px 7px 10px hsl(180, 40%, 82%));
+
+      cursor: pointer;
+    }
+  }
+}
+@import "mobile.scss";
