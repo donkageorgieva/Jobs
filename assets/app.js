@@ -1,1 +1,125 @@
-!function(e){var t={};function r(s){if(t[s])return t[s].exports;var o=t[s]={i:s,l:!1,exports:{}};return e[s].call(o.exports,o,o.exports,r),o.l=!0,o.exports}r.m=e,r.c=t,r.d=function(e,t,s){r.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:s})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var s=Object.create(null);if(r.r(s),Object.defineProperty(s,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)r.d(s,o,function(t){return e[t]}.bind(null,o));return s},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="./assets",r(r.s=0)}([function(e,t,r){"use strict";r.r(t);class s{static renderJobs(e){const t=document.querySelector(".jobList");t.innerHTML="",e.forEach(e=>{const r=document.createElement("div");if(r.classList.add("job"),r.id=e.id,r.innerHTML=`<div class ='mainInfo'><div><p> ${e.company}</p><div class='chips'><p class ='featured'> </p> <p class='new'> </p></div></div><img src='${e.logo}'>  </div> \n  <div class='moreInfo'><h1> ${e.position}</h1><div class='flex'> <p> ${e.postedAt}</p><p>${e.contract} </p><p>${e.location} </p></div> </div>`,t.append(r),!0===e.new){const e=r.querySelector(".new");e.textContent="New",e.classList.add("activeNew")}if(!0===e.featured){const e=r.querySelector(".featured");e.textContent="Featured",e.classList.add("activeFeatured")}else r.querySelector(".new").remove(),r.querySelector(".featured").remove()})}}class o{constructor(){this.filterElements=document.querySelectorAll(".filterCard"),this.showAll=document.querySelector(".showAll")}resetActive(){this.filterElements.forEach(e=>{e.classList.remove("active"),this.showAll.classList.remove("activeShowAll")})}activateFilter(e){this.filterElements.forEach(t=>{t.addEventListener("click",r=>{this.resetActive(),r.target.closest("div").classList.add("active");let s=t.querySelector("h2").textContent;this.filterJobs(e,s)})}),this.showAll.addEventListener("click",()=>{this.resetActive(),this.showAll.classList.add("activeShowAll"),this.showAllJobs(e)})}filterJobs(e,t){let r=[];e.forEach(e=>{t.toLowerCase()===e.role.toLowerCase()&&r.push(e)}),s.renderJobs(r)}showAllJobs(e){s.renderJobs(e)}}(new class{async jobs(){try{let e=await fetch("src/data.json"),t=await e.json();s.renderJobs(t);(new o).activateFilter(t)}catch(e){console.log(e)}}}).jobs()}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/app.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/Filters.js":
+/*!************************!*\
+  !*** ./src/Filters.js ***!
+  \************************/
+/*! exports provided: Filters */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Filters\", function() { return Filters; });\n/* harmony import */ var _UI_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UI.js */ \"./src/UI.js\");\n\r\n\r\nclass Filters {\r\n  constructor(){\r\n    this.filterElements = document.querySelectorAll('.filterCard');\r\n    this.showAll = document.querySelector('.showAll');\r\n  }\r\n\r\n    resetActive(){\r\n     this.filterElements.forEach(el => {\r\n       el.classList.remove('active');\r\n       this.showAll.classList.remove('activeShowAll');\r\n     })\r\n    }\r\n     activateFilter(jobList){\r\n   \r\n   \r\n   \r\n     this.filterElements.forEach(filter => {\r\n       filter.addEventListener('click', (e)=> {\r\n       this.resetActive();\r\n     e.target.closest('div').classList.add('active');\r\n   \r\n      \r\n         let h2Element = filter.querySelector('h2');\r\n         let role = h2Element.textContent;\r\n   \r\n    \r\n         this.filterJobs(jobList,role);\r\n   \r\n   \r\n       \r\n       })\r\n     })\r\n     this.showAll.addEventListener('click', ()=> {\r\n       this.resetActive();\r\n       this.showAll.classList.add('activeShowAll');\r\n       this.showAllJobs(jobList);\r\n     })\r\n     }\r\n   filterJobs(list, element){\r\n     let filteredJobs =[];\r\n     list.forEach(job => {\r\n      \r\n      if (element.toLowerCase() === job.role.toLowerCase()){\r\n        filteredJobs.push(job);\r\n      }\r\n     })\r\n     _UI_js__WEBPACK_IMPORTED_MODULE_0__[\"RenderJobs\"].renderJobs(filteredJobs);\r\n   }\r\n   showAllJobs(list){\r\n     _UI_js__WEBPACK_IMPORTED_MODULE_0__[\"RenderJobs\"].renderJobs(list);\r\n   }\r\n   }\n\n//# sourceURL=webpack:///./src/Filters.js?");
+
+/***/ }),
+
+/***/ "./src/UI.js":
+/*!*******************!*\
+  !*** ./src/UI.js ***!
+  \*******************/
+/*! exports provided: RenderJobs */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RenderJobs\", function() { return RenderJobs; });\n\r\n\r\n\r\nclass RenderJobs{\r\n    static renderJobs(data){\r\n     \r\n   \r\n        const parentElement = document.querySelector('.jobList');\r\n        parentElement.innerHTML = '';\r\n      \r\n        data.forEach(job => {\r\n          const jobElement = document.createElement('div');\r\n        jobElement.classList.add('job');\r\n        jobElement.id = job.id;\r\n       \r\n      \r\n  jobElement.innerHTML = `<div class ='mainInfo'><div><p> ${job.company}</p><div class='chips'><p class ='featured'> </p> <p class='new'> </p></div></div><img src='${job.logo}'>  </div> \r\n  <div class='moreInfo'><h1> ${job.position}</h1><div class='flex'> <p> ${job.postedAt}</p><p>${job.contract} </p><p>${job.location} </p></div> </div>`;\r\n  parentElement.append(jobElement);\r\n  if(job.new === true){\r\n   const element = jobElement.querySelector('.new');\r\n   element.textContent = 'New';\r\n   element.classList.add('activeNew');\r\n  } \r\n   if (job.featured === true){\r\n    const element = jobElement.querySelector('.featured');\r\n    element.textContent = 'Featured'; \r\n    element.classList.add('activeFeatured');\r\n  } else{\r\n    jobElement.querySelector('.new').remove();\r\n    jobElement.querySelector('.featured').remove();\r\n  }\r\n        });\r\n  \r\n  \r\n    }\r\n  \r\n  }\n\n//# sourceURL=webpack:///./src/UI.js?");
+
+/***/ }),
+
+/***/ "./src/app.js":
+/*!********************!*\
+  !*** ./src/app.js ***!
+  \********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Filters_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Filters.js */ \"./src/Filters.js\");\n/* harmony import */ var _UI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UI.js */ \"./src/UI.js\");\n\r\n\r\n\r\n\r\nclass GetJobs{\r\n\r\n    async jobs(){\r\n \r\n      try{\r\n        let result = await fetch('src/data.json');\r\n        let data = await result.json();\r\n        _UI_js__WEBPACK_IMPORTED_MODULE_1__[\"RenderJobs\"].renderJobs(data);\r\n        const filterFunctions = new _Filters_js__WEBPACK_IMPORTED_MODULE_0__[\"Filters\"]();\r\n        filterFunctions.activateFilter(data);\r\n       \r\n      } catch(error){\r\n     console.log(error);\r\n\r\n      }\r\n    \r\n     \r\n    }\r\n   \r\n}\r\n\r\nconst jobs = new GetJobs;\r\njobs.jobs();\n\n//# sourceURL=webpack:///./src/app.js?");
+
+/***/ })
+
+/******/ });

@@ -22,5 +22,6 @@ class GetJobs{
     }
    
 }
+
 const jobs = new GetJobs;
 jobs.jobs();
